@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="mk">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="../assets/img/justLogo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Safeblink</title>
+    <link href="../tailwindCSS/dist/output.css" rel="stylesheet" />
+
+    <!-- FontAwesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .glow-border {
+        transition: box-shadow 0.3s ease-in-out;
+      }
+
+      .glow-border:hover {
+        box-shadow: 0 0 20px 5px rgba(255, 255, 255, 0.5);
+      }
+      .text-stroke {
+        text-shadow: -1px -1px 0 rgb(24, 0, 78), 1px -1px 0 rgb(24, 0, 78),
+          -1px 1px 0 rgb(24, 0, 78), 1px 1px 0 rgb(24, 0, 78);
+      }
+
+      .div-style {
+        padding-top: 100px;
+        background: linear-gradient(to right, #c3dafe, #93c5fd, #6ee7b7);
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header -->
+    <div class="div-style"></div>
+    <header
+      class="bg-sky-200 fixed top-0 left-0 w-full border-b-2 z-10 rounded-md bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-70 border border-gray-100"
+    >
+      <!-- Navbar -->
+      <nav class="flex justify-between items-center max-w-[90%] mx-auto py-4">
+        <div class="flex items-center">
+          <a href="#landingPage">
+            <img
+              src="../assets/img/logoColor.png"
+              alt="logo"
+              class="w-24 h-auto mr-16"
+            />
+          </a>
+
+          <!-- Navbar links -->
+          <ul class="hidden md:flex items-center text-indigo-900 font-bold">
+            <li class="mr-4 hover:text-violet-50 hover:text-lg">
+              <a href="#learnPage">Информирај се</a>
+            </li>
+            <li class="mr-4 hover:text-violet-50 hover:text-lg">
+              <a href="#discussionPage">Дискусии</a>
+            </li>
+            <li class="mr-4 hover:text-violet-50 hover:text-lg">
+              <a href="#contactPage">Контакт</a>
+            </li>
+            <li>
+              <a
+                href="#profilePage "
+                id="profile"
+                class="hover:text-violet-50 hover:text-lg"
+                >Профил</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Other navbar items -->
+        <div class="items-center hidden md:flex text-indigo-900">
+          <div class="mr-5">
+            <img
+              id="userImage"
+              alt="userImage"
+              class="h-10 w-10 rounded-full"
+            />
+          </div>
+          <div
+            id="log"
+            class="border-2 rounded-lg border-indigo-900 hover:border-violet-50 py-1 px-3 font-medium mr-3 hover:text-violet-50"
+          >
+            <a href="#signUp"
+              ><i class="fa-solid fa-user"></i> <span>Најави се</span></a
+            >
+          </div>
+          <div
+            id="logOut"
+            class="border-2 rounded-lg border-indigo-900 hover:border-violet-50 py-1 px-3 font-medium mr-3 hover:text-violet-50"
+          >
+            <a href="#signUp"><span>Одјави се</span></a>
+          </div>
+          <div class="mr-3 hover:text-violet-50">MK</div>
+          <span aria-label="Search" class="hover:text-violet-50"
+            ><i class="fa-solid fa-search font-bold"></i
+          ></span>
+        </div>
+
+        <!-- Burger menu icon visible on smaller screens -->
+        <div class="flex items-center md:hidden">
+          <span id="burger-menu" aria-label="Toggle Menu">
+            <i class="fa-solid fa-bars-staggered hover:text-violet-50"></i>
+          </span>
+        </div>
+      </nav>
+
+      <!-- Stacked navbar links on smaller screens -->
+      <div
+        class="navbarItems md:hidden flex flex-col text-end text-indigo-900 font-bold mt-5 px-3"
+      >
+        <a
+          href="#learnPage"
+          class="py-2 px-4 border-b border-indigo-900 hover:border-violet-50 hover:text-violet-50"
+          >Информирај се</a
+        >
+        <a
+          href="#discussionPage"
+          class="py-2 px-4 border-b border-indigo-900 hover:border-violet-50 hover:text-violet-50"
+          >Дискусии</a
+        >
+        <a
+          href="#contactPage"
+          class="py-2 px-4 border-b border-indigo-900 hover:border-violet-50 hover:text-violet-50"
+          >Контакт</a
+        >
+        <a
+          id="logSmallerScreen"
+          href="#signUp"
+          class="py-2 px-4 border-b border-indigo-900 hover:border-violet-50 hover:text-violet-50"
+          >Најави се</a
+        >
+        <div
+          id="logOutSmallerScreen"
+          class="py-2 px-4 border-b border-indigo-900 hover:border-violet-50 hover:text-violet-50"
+        >
+          <a href="#signUp"><span>Одјави се</span></a>
+        </div>
+        <div
+          class="flex items-center py-2 px-4 border-b border-indigo-900 hover:border-violet-50 hover:text-violet-50 justify-end"
+        >
+          <i class="fa-solid fa-search font-bold mr-2 hover:text-violet-50"></i>
+          Пребарај
+        </div>
+        <div class="py-2 px-4 hover:text-violet-50">MK</div>
+      </div>
+    </header>
+
+    <!-- Main -->
+
+    <!-- Landing page -->
+    <section id="landingPage" class="">
+      <div class="h-64 md:h-96 relative">
+        <video
+          id="videoPlayer"
+          class="w-full h-full object-cover"
+          autoplay
+          loop
+          muted
+        >
+          <source src="../assets/img/heroVideo.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+
+        <div
+          class="absolute inset-0 flex flex-col items-end justify-center cursor-pointer"
+        >
+          <div id="playIcon">
+            <i
+              class="fa-solid fa-circle-play text-white opacity-75 text-xl m-4"
+            ></i>
+          </div>
+          <div id="pauseIcon">
+            <i
+              class="fa-solid fa-circle-pause text-white opacity-75 text-xl m-4"
+            ></i>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-gradient-to-br from-blue-300 to-emerald-400">
+        <h1
+          class="text-6xl font-bold text-white opacity-75 text-center mb-8 pt-14"
+        >
+          Информирај се и заштити се
+        </h1>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-full md:max-w-[80%] mx-auto px-4 py-12"
+        >
+          <div
+            class="shadow-md p-4 rounded-xl bg-green-200 bg-opacity-40 backdrop-blur-lg"
+          >
+            <div class="flex justify-between">
+              <h3 class="text-2xl font-bold text-blue-950">
+                Научи се што треба да знаеш
+              </h3>
+              <img
+                src="../assets/img/icon1.png"
+                alt="icon"
+                class="w-16 h-auto mx-4"
+              />
+            </div>
+            <p class="my-5">
+              Во дигиталната ера, безбедното користење на интернетот е од клучно
+              значење. „Safeblink“ е веб-апликација која те учи како безбедно да
+              сурфаш на интернет и да ги заштитиш твоите лични податоци.
+            </p>
+            <a
+              href="#learnPage"
+              class="block py-2 bg-white bg-opacity-45 text-blue-950 font-medium rounded-lg hover:bg-white hover:bg-opacity-75 hover:brightness-110 text-center transition-all duration-300 shadow-md"
+              >Дознај повеќе</a
+            >
+          </div>
+
+          <div
+            class="shadow-md p-4 rounded-xl bg-blue-200 bg-opacity-40 backdrop-blur-lg"
+          >
+            <div class="flex justify-between">
+              <h3 class="text-2xl font-bold text-blue-950">
+                Вклучи се во дискусија
+              </h3>
+              <img
+                src="../assets/img/icon2.png"
+                alt="icon"
+                class="w-16 h-auto mx-4"
+              />
+            </div>
+
+            <p class="my-5">
+              Сподели ги твоите искуства, поставувај прашања и разменувај
+              мислења со други корисници. На овој начин, ќе создадеш посигурна и
+              подобро информирана онлајн заедница.
+            </p>
+            <a
+              href="#discussionPage"
+              class="block py-2 bg-white bg-opacity-45 text-blue-950 font-medium rounded-lg hover:bg-white hover:bg-opacity-75 hover:brightness-110 text-center transition-all duration-300 shadow-md"
+              >Дознај повеќе</a
+            >
+          </div>
+
+          <div
+            class="shadow-md p-4 rounded-xl bg-purple-200 bg-opacity-40 backdrop-blur-lg"
+          >
+            <div class="flex justify-between">
+              <h3 class="text-2xl font-bold text-blue-950">
+                Следи го својот напредок
+              </h3>
+              <img
+                src="../assets/img/icon3.png"
+                alt="icon"
+                class="w-16 h-auto mx-4"
+              />
+            </div>
+
+            <p class="my-5">
+              Нашата апликација ти овозможува да ги идентификуваш областите каде
+              што можеш да се подобриш и да останеш мотивиран во твоето патување
+              кон поголема интернет безбедност.
+            </p>
+            <a
+              href="#contactPage"
+              class="block py-2 bg-white bg-opacity-45 text-blue-950 font-medium rounded-lg hover:bg-white hover:bg-opacity-75 hover:brightness-110 text-center transition-all duration-300 shadow-md"
+              >Дознај повеќе</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sign up page -->
+    <section id="signUp" class="bg-gradient-to-br from-blue-300 to-emerald-400">
+      <h1
+        class="text-5xl font-bold text-white opacity-75 md:max-w-[80%] mx-auto text-center md:text-left px-4 pt-10"
+      >
+        Придружи ни се
+      </h1>
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 md:max-w-[80%] mx-auto px-4 py-12"
+      >
+        <div class="order-last md:order-first mr-0 md:mr-12">
+          <div class="mb-4">
+            <a
+              href="https://www.google.com/accounts/Login"
+              target="_blank"
+              class="block p-2 bg-white border-2 border-purple-500 rounded"
+            >
+              <i class="fa-brands text-xl fa-google"></i>
+              <span class="text-gray-400 px-2">Продолжи со Google</span>
+            </a>
+          </div>
+          <div class="my-4">
+            <a
+              href="https://appleid.apple.com/"
+              target="_blank"
+              class="block p-2 bg-white border-2 border-purple-500 rounded"
+            >
+              <i class="fa-brands text-xl fa-apple"></i>
+              <span class="text-gray-400 px-2">Продолжи со Apple</span>
+            </a>
+          </div>
+          <div class="my-4">
+            <a
+              href="https://www.tiktok.com/login"
+              target="_blank"
+              class="block p-2 bg-white border-2 border-purple-500 rounded"
+            >
+              <i class="fa-brands text-xl fa-tiktok"></i>
+              <span class="text-gray-400 px-2">Продолжи со TikTok</span>
+            </a>
+          </div>
+
+          <div class="flex items-center">
+            <hr class="border border-gray-300 w-full mx-2" />
+            <span class="mx-2">или</span>
+            <hr class="border border-gray-300 w-full mx-2" />
+          </div>
+
+          <form class="grid gap-4">
+            <div>
+              <label for="name" class="text-sm">Корисничко име</label>
+              <input
+                type="text"
+                id="name"
+                name="username"
+                placeholder="Username"
+                class="border-2 border-purple-500 rounded p-2 w-full mt-1"
+              />
+            </div>
+
+            <div>
+              <label for="password" class="text-sm">Лозинка</label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                class="border-2 border-purple-500 rounded p-2 w-full mt-1"
+              />
+            </div>
+            <div class="text-xs hidden hiddenFormText">
+              <span class="text-red-600">Податоците се непотполни*</span>
+            </div>
+            <div class="grid grid-cols-2 gap-4 text-opacity-50 text-xs">
+              <span>
+                <input type="checkbox" />
+                <span>Запомни ме</span>
+              </span>
+              <span class="text-right">
+                <span>Ја заборави лозинката?</span>
+              </span>
+            </div>
+
+            <button
+              type="submit"
+              class="block py-2 bg-white bg-opacity-45 text-blue-950 font-medium rounded-lg hover:bg-white hover:bg-opacity-75 hover:brightness-110 text-center transition-all duration-300 shadow-md w-36 m-auto"
+            >
+              Најави се
+            </button>
+          </form>
+        </div>
+
+        <div class="order-first md:order-last">
+          <img
+            src="../assets/img/signInImg.png"
+            alt="signUp Image"
+            class="rounded-lg"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact page -->
+    <section
+      id="contactPage"
+      class="bg-gradient-to-br from-blue-300 to-emerald-400"
+    >
+      <h2
+        class="text-6xl font-bold md:max-w-[80%] mx-auto text-white text-center md:text-left opacity-75 mb-8 pt-14 px-4"
+      >
+        Контакт
+      </h2>
+      <!-- Card -->
+      <div class="md:max-w-[80%] mx-auto px-4 pt-10">
+        <h3 class="text-indigo-900 font-bold text-xl pb-3">
+          Побарај стручна помош
+        </h3>
+        <div
+          class="flex flex-col sm:flex-row items-center bg-white opacity-75 px-10 py-4 rounded-md shadow-lg"
+        >
+          <div class="flex-grow">
+            <h4 class="text-purple-500 font-medium pb-2">
+              Агенција за заштита на личните податоци
+            </h4>
+            <p>
+              Агенцијата за заштита на личните податоци е независно регулаторно
+              тело кое е одговорно за заштита на правата на поединците во врска
+              со обработката на нивните лични податоци. Целта на Агенцијата е да
+              обезбеди усогласеност со законските прописи за заштита на личните
+              податоци и да ги информира граѓаните за нивните права и обврски во
+              оваа област
+            </p>
+          </div>
+          <a
+            href="#"
+            class="bg-purple-500 px-4 py-2 my-4 sm:my-0 sm:ml-10 text-center text-white rounded"
+            >Линк</a
+          >
+        </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="md:max-w-[80%] mx-auto px-4 pt-10">
+        <h3 class="text-indigo-900 font-bold text-xl pb-3">
+          Побарај стручна помош
+        </h3>
+        <div
+          class="flex flex-col sm:flex-row items-center bg-white opacity-75 px-10 py-4 rounded-md shadow-lg"
+        >
+          <div class="flex-grow">
+            <h4 class="text-purple-500 font-medium pb-2">
+              Агенција за заштита на личните податоци
+            </h4>
+            <p>
+              Агенцијата врши надзор над обработката на лични податоци, дава
+              препораки за подобрување на заштитата на податоците и соработува
+              со други национални и меѓународни тела за заштита на личните
+              податоци. Со својата работа, Агенцијата придонесува за зајакнување
+              на довербата на граѓаните во дигиталната економија и заштитата на
+              нивната приватност
+            </p>
+          </div>
+          <a
+            href="#"
+            class="bg-purple-500 px-4 py-2 my-4 sm:my-0 sm:ml-10 text-center text-white rounded"
+            >Линк</a
+          >
+        </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="md:max-w-[80%] mx-auto px-4 pt-4">
+        <div
+          class="flex flex-col sm:flex-row items-center bg-white opacity-75 px-10 py-4 rounded-md shadow-lg"
+        >
+          <div class="flex-grow">
+            <h4 class="text-purple-500 font-medium pb-2">
+              Агенција за заштита на личните податоци
+            </h4>
+            <p>
+              Агенцијата за заштита на личните податоци има мисија да ја зголеми
+              свеста кај граѓаните и организациите за важноста на заштитата на
+              личните податоци. Таа обезбедува едукација, обуки и насоки за
+              правилно управување и обработка на личните податоци, со цел да се
+              спречат злоупотреби и неовластен пристап.
+            </p>
+          </div>
+          <a
+            href="#"
+            class="bg-purple-500 px-4 py-2 my-4 sm:my-0 sm:ml-10 text-center text-white rounded"
+            >Линк</a
+          >
+        </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="md:max-w-[80%] mx-auto px-4 pt-4 pb-20">
+        <div
+          class="flex flex-col sm:flex-row items-center bg-white opacity-75 px-10 py-4 rounded-md shadow-lg"
+        >
+          <div class="flex-grow">
+            <h4 class="text-purple-500 font-medium pb-2">
+              Агенција за заштита на личните податоци
+            </h4>
+            <p>
+              Агенцијата исто така се залага за транспарентност во обработката
+              на лични податоци и редовно ги информира граѓаните за нивните
+              права и обврски. Со обезбедување на лесен пристап до информации и
+              поддршка.
+            </p>
+          </div>
+          <a
+            href="#"
+            class="bg-purple-500 px-4 py-2 my-4 sm:my-0 sm:ml-10 text-center text-white rounded"
+            >Линк</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Discussion page -->
+    <section
+      class="relative bg-gradient-to-br from-blue-200 to-emerald-300"
+      id="discussionPage"
+    >
+      <h2
+        class="text-6xl font-bold md:max-w-[80%] mx-auto text-white opacity-75 mb-8 pt-14 px-4"
+      >
+        Табла за дискусии
+      </h2>
+      <div
+        class="grid grid-cols-1 md:grid-cols-3 gap-3 md:max-w-[80%] mx-auto px-4"
+      >
+        <div
+          id="textareaInputField"
+          class="bg-gray-200 md:col-span-2 flex flex-col p-3 rounded-lg justify-between"
+        >
+          <textarea
+            class="border-b border-gray-300 bg-transparent focus:outline-none w-full"
+            name="textarea"
+            id="textarea"
+            placeholder="Сподели искуство"
+          ></textarea>
+          <span class="text-red-600 hidden hiddenTextarea"
+            >Полето не може да биде празно*</span
+          >
+          <div class="flex justify-between mt-3">
+            <div class="flex">
+              <img
+                src="../assets/imgProfile/profile.png"
+                alt="this"
+                class="w-10 h-10"
+              />
+              <p class="px-2 flex items-center">име и презиме</p>
+            </div>
+            <button
+              class="btn bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            >
+              Објави
+            </button>
+          </div>
+        </div>
+        <div class="col-span-2 lg:col-span-1 flex flex-col">
+          <div class="rounded-lg bg-gray-200 flex justify-between px-2">
+            <div class="flex items-center">
+              <div class="h-8 w-8 rounded-md bg-sky-600 m-2"></div>
+              <p class="text-xs">Ново додадени</p>
+            </div>
+            <div class="flex items-center">
+              <div class="h-8 w-8 rounded-md bg-purple-600 m-2"></div>
+              <p class="text-xs">Омилени</p>
+            </div>
+            <div class="flex items-center">
+              <div class="h-8 w-8 rounded-md bg-indigo-500 m-2"></div>
+              <p class="text-xs">Популарни</p>
+            </div>
+          </div>
+          <div class="rounded-lg bg-gray-200 px-2 mt-2">
+            <h3 class="text-xl font-medium">Тема на денот:</h3>
+            <p class="mb-2">
+              Споделување на мислење за претставените статии во делот
+              <span class="italic">информирај се</span>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div
+        class="bg-emerald-300 flex items-center justify-center w-full rounded-md backdrop-blur-sm bg-opacity-50 h-48 absolute bottom-0 left-1/2 transform -translate-x-1/2 z-10"
+        id="fixedDiv"
+      >
+        <i class="fa-solid fa-plus fa-beat text-white cursor-pointer"></i>
+      </div>
+
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-full md:max-w-[80%] mx-auto px-4 py-8 discussionSection"
+      >
+        <!-- Dinamically added cards -->
+      </div>
+    </section>
+
+    <!-- Profile page -->
+    <section
+      id="profilePage"
+      class="bg-gradient-to-br from-blue-300 to-emerald-400"
+    >
+      <h2
+        class="text-center md:text-start text-6xl font-bold md:max-w-[80%] mx-auto text-white opacity-75 mb-8 pt-14"
+      >
+        Профил
+      </h2>
+      <div class="flex flex-col md:flex-row max-w-[90%] md:max-w-[80%] mx-auto">
+        <div class="md:w-1/4 wrapperDiv relative">
+          <img
+            id="profilePic"
+            alt="profilePicture"
+            class="w-full object-contain rounded-xl inputDiv"
+          />
+          <button
+            class="absolute bottom-0 w-full h-10 hidden inputBtn bg-purple-400 opacity-75 rounded-bl-xl rounded-br-xl px-4 text-center align-middle text-white"
+            type="button"
+            disabled
+          >
+            Промени
+          </button>
+        </div>
+
+        <div class="md:w-3/4">
+          <form class="flex flex-col md:flex-row text-white mt-5 md:mt-0">
+            <div class="flex flex-col md:ml-10 w-full">
+              <div class="mb-4 wrapperDiv">
+                <label for="username">Име и презиме/корисничко име</label>
+                <div class="flex inputDiv border-b-2">
+                  <input
+                    type="text"
+                    id="username"
+                    class="w-full px-4 py-2 bg-transparent focus:outline-none"
+                    disabled
+                  />
+                  <button
+                    class="hidden inputBtn rounded bg-purple-400 px-4 text-center align-middle text-white"
+                    type="button"
+                    disabled
+                  >
+                    Промени
+                  </button>
+                </div>
+              </div>
+
+              <div class="mb-4 wrapperDiv">
+                <label for="email">email адреса</label>
+                <div class="flex inputDiv border-b-2">
+                  <input
+                    type="email"
+                    id="email"
+                    class="w-full px-4 py-2 bg-transparent focus:outline-none"
+                    disabled
+                  />
+                  <button
+                    class="hidden inputBtn rounded bg-purple-500 px-4 text-center align-middle text-white"
+                    type="button"
+                    id="emailButton"
+                  >
+                    Промени
+                  </button>
+                </div>
+                <span id="emailError" class="hidden text-red-500"
+                  >Внеси валидна емаил адреса*</span
+                >
+              </div>
+
+              <div class="mb-4 wrapperDiv">
+                <label for="passwordInput">Лозинка</label>
+                <div class="flex inputDiv border-b-2">
+                  <input
+                    value="*******"
+                    type="password"
+                    id="passwordInput"
+                    class="w-full px-4 py-2 bg-transparent focus:outline-none"
+                    disabled
+                  />
+                  <button
+                    class="hidden inputBtn rounded bg-purple-400 px-4 text-center align-middle text-white"
+                    type="button"
+                    disabled
+                  >
+                    Промени
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col md:ml-10 w-full">
+              <div class="mb-4 wrapperDiv">
+                <label for="year">Година на раѓање</label>
+                <div class="flex inputDiv border-b-2">
+                  <input
+                    type="text"
+                    id="year"
+                    class="w-full px-4 py-2 bg-transparent focus:outline-none"
+                    disabled
+                  />
+                  <button
+                    class="hidden inputBtn rounded bg-purple-500 px-4 text-center align-middle text-white"
+                    type="button"
+                  >
+                    Промени
+                  </button>
+                </div>
+              </div>
+
+              <div class="mb-4 wrapperDiv">
+                <label for="gender">Пoл</label>
+                <div class="flex inputDiv border-b-2">
+                  <input
+                    type="text"
+                    id="gender"
+                    class="w-full px-4 py-2 bg-transparent focus:outline-none"
+                    disabled
+                  />
+                  <button
+                    class="hidden inputBtn rounded bg-purple-500 px-4 text-center align-middle text-white"
+                    type="button"
+                  >
+                    Промени
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="max-w-[90%] md:max-w-[80%] mx-auto py-10">
+        <div class="flex justify-between text-white mb-5">
+          <span>Следи го својот <b>Safeblink</b> напредок</span>
+          <span>Моментално ниво:</span>
+        </div>
+        <div class="relative w-full h-2 bg-gray-200 rounded-full">
+          <div
+            class="absolute top-0 left-0 h-full bg-green-500 rounded-full animate-pulse w-[70%]"
+          ></div>
+        </div>
+      </div>
+
+      <div class="flex md:max-w-[82%] mx-auto h-[40%]">
+        <!-- Left side image -->
+        <div class="flex-none w-1/6">
+          <img src="../assets/img/Welcome.png" alt="Се придружи" />
+        </div>
+        <!-- Right side dynamic content -->
+        <div id="badgesSection" class="flex-grow grid grid-cols-5">
+          <!-- Dynamically rendered items will go here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Learn page -->
+
+    <section
+      id="learnPage"
+      class="bg-gradient-to-br from-blue-200 to-emerald-300"
+    >
+      <h2
+        class="text-center md:text-start text-6xl font-bold md:max-w-[80%] mx-auto text-white opacity-75 mb-8 pt-14"
+      >
+        Се што треба да знаеш
+      </h2>
+      <div class="md:max-w-[80%] mx-auto">
+        <div class="flex mb-8 justify-normal md:justify-center overflow-x-auto">
+          <button
+            class="text-4xl bg-transparent rounded-3xl px-5 font-bold text-indigo-900 filterButton m-8 md:m-4"
+            data-filter="video"
+          >
+            Видеа
+          </button>
+          <button
+            class="text-4xl bg-transparent rounded-3xl px-5 font-bold text-indigo-900 filterButton m-8 md:m-4"
+            data-filter="article"
+          >
+            Статии
+          </button>
+          <button
+            class="text-4xl bg-transparent rounded-3xl px-5 font-bold text-indigo-900 allFilter m-8 md:m-4"
+            data-filter="all"
+          >
+            Сите
+          </button>
+        </div>
+        <div class="flex mb-8 justify-normal md:justify-center overflow-x-auto">
+          <button
+            class="filterButton block py-2 px-4 bg-white bg-opacity-20 text-blue-950 font-medium rounded-3xl hover:bg-white hover:bg-opacity-75 hover:brightness-110 text-center transition-all duration-300 shadow-md m-8 md:m-4"
+            data-filter="Заштита од малвери и вируси"
+          >
+            Заштита од малвери и вируси
+          </button>
+          <button
+            class="filterButton block py-2 px-4 bg-white bg-opacity-20 text-blue-950 font-medium rounded-3xl hover:bg-white hover:bg-opacity-75 hover:brightness-110 text-center transition-all duration-300 shadow-md m-8 md:m-4"
+            data-filter="Заштита на податоците"
+          >
+            Заштита на податоците
+          </button>
+          <button
+            class="filterButton block py-2 px-4 bg-white bg-opacity-20 text-blue-950 font-medium rounded-3xl hover:bg-white hover:bg-opacity-75 hover:brightness-110 text-center transition-all duration-300 shadow-md m-8 md:m-4"
+            data-filter="Основни безбедносни принципи"
+          >
+            Основни безбедносни принципи
+          </button>
+        </div>
+        <div class="flex mb-8 justify-normal md:justify-center overflow-x-auto">
+          <button
+            class="filterButton block py-2 px-4 bg-white bg-opacity-20 text-blue-950 font-medium rounded-3xl hover:bg-white hover:bg-opacity-75 hover:brightness-110 text-center transition-all duration-300 shadow-md m-8 md:m-4"
+            data-filter="Последни новости"
+          >
+            Последни новости
+          </button>
+          <button
+            class="filterButton block py-2 px-4 bg-white bg-opacity-20 text-blue-950 font-medium rounded-3xl hover:bg-white hover:bg-opacity-75 hover:brightness-110 text-center transition-all duration-300 shadow-md m-8 md:m-4"
+            data-filter="Најпопуларни"
+          >
+            Најпопуларни
+          </button>
+        </div>
+      </div>
+
+      <div
+        class="md:max-w-[80%] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-full px-4 py-12 categorySection"
+      >
+        <!-- Dynamically added cards here -->
+      </div>
+
+      <!-- Modal HTML Structure -->
+      <div
+        id="myModal"
+        class="fixed inset-0 hidden items-center justify-center bg-gray-900 bg-opacity-50"
+      >
+        <div
+          class="rounded-3xl shadow-md p-5 bg-gray-300 hover:bg-gradient-to-br from-gray-200 via-light-gray-300 to-gray-400 transition-colors duration-300 bg-opacity-70 backdrop-blur-lg w-[80%] h-[80%] flex"
+        >
+          <!-- Comments Side -->
+          <div class="w-2/3 overflow-y-auto">
+            <div class="modalSection pb-3"></div>
+            <div
+              class="flex flex-col border-2 border-gray-900 text-indigo-950 rounded-xl p-3"
+            >
+              <input
+                type="text"
+                class="inputComment bg-transparent border-b border-gray-900 w-full focus:outline-none mb-4 p-2"
+                placeholder="Type your comment"
+              />
+              <div class="flex justify-between">
+                <div class="flex items-center">
+                  <span class="pr-2">
+                    <img
+                      src="../assets/imgProfile/profile.png"
+                      alt="img"
+                      class="h-12 w-12 rounded-full"
+                    />
+                  </span>
+                  <span>Име и презиме</span>
+                </div>
+                <button
+                  class="btnComment bg-blue-500 hover:bg-blue-600 text-white font-bold py-1 px-2 rounded"
+                >
+                  Додади коментар
+                </button>
+              </div>
+            </div>
+            <span class="text-red-600 hidden hiddenText"
+              >Полето не може да биде празно*</span
+            >
+            <div class="newComments"></div>
+            <!-- comments section -->
+            <div class="modalComments"></div>
+            <!-- modal comments -->
+          </div>
+          <!-- Visual Side -->
+
+          <div class="w-1/3 ml-5 modalVisual"></div>
+          <div class="ml-2 escButton cursor-pointer">
+            <i class="fa-solid fa-x"></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="bg-gradient-to-r from-indigo-600 from-10% via-sky-600 via-30% to-emerald-600 to-90% mt-auto text-white"
+    >
+      <div
+        class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:max-w-[80%] mx-auto px-4 py-10"
+      >
+        <div class="flex flex-col justify-between text-center md:text-left">
+          <a href="/">
+            <img
+              src="../assets/img/logoWhite.png"
+              alt="Logo"
+              class="w-20 h-auto hidden md:block"
+            />
+          </a>
+          <div>
+            <p class="py-3">
+              International Foundation for Electoral Systems (IFES)
+            </p>
+            <span class="pr-3"
+              ><i class="fa-solid fa-phone"></i> +389-2-312-2288</span
+            >
+            <span
+              ><i class="fa-solid fa-envelope"></i>
+              <a href="mailto:ifes.nmk@ifes.org">ifes.nmk@ifes.org</a></span
+            >
+          </div>
+        </div>
+        <div class="text-center md:text-left">
+          <ul
+            class="flex flex-col justify-evenly space-y-4 h-full pl-0 md:pl-20"
+          >
+            <li><a href="#">Информирај се</a></li>
+            <li><a href="#">Дискусии</a></li>
+            <li><a href="#">Контакт - корисни линкови</a></li>
+            <li><a href="#">Закон за заштита на лични податоци</a></li>
+          </ul>
+        </div>
+        <div
+          class="flex flex-col md:justify-between md:items-start lg:items-end"
+        >
+          <div class="flex justify-evenly items-center">
+            <p>MK</p>
+            <a href="#">
+              <img
+                src="../assets/img/logoWhite.png"
+                alt="IFES Logo"
+                class="w-20 h-auto md:hidden mb-5"
+              />
+            </a>
+          </div>
+          <ul class="flex text-2xl justify-center my-5 lg:my-0">
+            <li>
+              <a href="https://www.facebook.com/" target="_blank"
+                ><i class="fa-brands fa-square-facebook"></i
+              ></a>
+            </li>
+            <li class="ml-4">
+              <a href="https://www.instagram.com/" target="_blank"
+                ><i class="fa-brands fa-square-instagram"></i
+              ></a>
+            </li>
+            <li class="ml-4">
+              <a href="https://www.youtube.com/" target="_blank"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+            </li>
+            <li class="ml-4">
+              <a href="https://www.tiktok.com/" target="_blank"
+                ><i class="fa-brands fa-tiktok"></i
+              ></a>
+            </li>
+          </ul>
+          <div class="flex justify-center">
+            &copy; All rights reserved | <a href="#">safeblink.mk</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Script -->
+
+    <script src="../js/index.js" type="module"></script>
+  </body>
+</html>

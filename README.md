@@ -50,10 +50,10 @@ Flask and Flask-CORS libraries
 - **Install `http-server`**  
   In the terminal, run the following command (if already don't have it installed):
 
-  ```bash
-  npm install -g http-server
+```bash
+npm install -g http-server
 
-  ```
+```
 
 - **Set the HTTP Server**  
   Navigate to the project directory and start the server by running:

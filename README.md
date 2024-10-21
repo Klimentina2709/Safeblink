@@ -55,8 +55,8 @@ Flask and Flask-CORS libraries
 
   ```
 
-  - **Set the HTTP Server**  
-    Navigate to the project directory and start the server by running:
+- **Set the HTTP Server**  
+  Navigate to the project directory and start the server by running:
 
   ```bash
   http-server -p 5500

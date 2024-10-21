@@ -10,10 +10,12 @@ Marjan Ralevski
 
 ## Technologies Used
 
-HTML
-CSS (including Tailwind CSS)
-Vanilla JavaScript
-Python (Flask) for the REST API
+- ![HTML](https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white) : HTML
+- ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white) : CSS (including Tailwind CSS)
+- ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+- ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) : Vanilla JavaScript
+- ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) : Python (Flask) for the REST API
+- ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 
 ## Features
 
@@ -24,7 +26,7 @@ User login functionality with multiple users:
 - User789 / Pass789
 
 REST API implemented in Python using Flask.
-Tailwind CSS is configured for styling; no additional setup is needed unless file locations change. If style changes are made, run npm run dev in the terminal to apply the updates.
+Tailwind CSS is configured for styling - no additional setup is needed unless file locations change.
 
 - Prerequisites
 
@@ -38,55 +40,52 @@ Flask and Flask-CORS libraries
 
 ## Getting Started
 
-1. Setting Up the Project
-   a. Clone the Repository
-   Download the project files or clone the repository.
+### 1. Setting Up the Project
 
-b. Install Node.js
-Make sure Node.js is installed. You can download it from Node.js official website.
+- **Download the project files** or clone the repository.
 
-c. Install http-server
-In the terminal, run the following command:
+- **Install Node.js**  
+  Make sure Node.js is installed. You can download it from [Node.js official website](https://nodejs.org/).
 
-npm install -g http-server 2. Running the Project
-a. Start the HTTP Server
-Navigate to the project directory and start the server:
+- **Install `http-server`**  
+  In the terminal, run the following command:
 
-http-server -p 5500
-b. Open in Browser
-Access the project in your web browser by visiting:
+  ```bash
+  npm install -g http-server
 
-http://localhost:5500/
-Alternatively, you can open the project using Live Server in Visual Studio Code.
+  ```
 
-3. Setting Up the REST API
-   a. Install Python
-   Download and install Python version 3.12.3 from Python's official website. Ensure you check the "Add Python to PATH" option during installation.
+### Running the Project
 
-b. Install Flask and Flask-CORS
-In the terminal, install the required Python libraries:
+- **Open in Browser**  
+  Access the project in your web browser by visiting:
 
-bash
-Copy code
-pip install flask
-pip install flask_cors
-c. Run the REST API
-Navigate to the REST API directory and start the server by running:
+  [http://localhost:5500/](http://localhost:5500/)
 
-bash
-Copy code
-python '.\REST API\authenticator.py'
+  Alternatively, you can open the project using Live Server in Visual Studio Code.
+
+### Setting Up the REST API
+
+- **Install Python**  
+  Download and install Python version 3.12.3 from [Python's official website](https://www.python.org/).
+- **Install Flask and Flask-CORS**  
+  In the terminal, install the required Python libraries:
+
+  ```bash
+  pip install flask
+  pip install flask_cors
+
+  ```
+
+- **Run the REST API**  
+  Navigate to the REST API directory and start the server by running:
+
+  ```bash
+  python '.\REST API\authenticator.py'
+
+  ```
+
 If successful, the application will be ready to authenticate the listed users.
-
-4. Troubleshooting Tailwind CSS
-   If Tailwind CSS styles do not appear as expected, you can temporarily add a CDN link in the <head> tag:
-
-## Style
-
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-
-To update Tailwind classes after changes, execute:
-npm run dev
 
 ## Contact
 

@@ -40,7 +40,28 @@ Flask and Flask-CORS libraries
 
 ## Getting Started
 
-### 1. Setting Up the Project
+### Setting Up the REST API
+
+- **Install Python**
+  Download and install Python version 3.12.3 from [Python's official website](https://www.python.org/).
+- **Install Flask and Flask-CORS**
+  In the terminal, install the required Python libraries (if already don't have them installed):
+
+```bash
+pip install flask
+pip install flask_cors
+
+```
+
+- **Run the REST API**  
+  Navigate to the REST API directory and start the server by running:
+
+  ```bash
+  python '.\REST API\authenticator.py'
+
+  ```
+
+### Setting Up the Project
 
 - **Download the project files** or clone the repository.
 
@@ -68,27 +89,6 @@ npm install -g http-server
   Access the project in your web browser by visiting:
 
 [http://localhost:5500/](http://localhost:5500/)
-
-### Setting Up the REST API
-
-- **Install Python**
-  Download and install Python version 3.12.3 from [Python's official website](https://www.python.org/).
-- **Install Flask and Flask-CORS**
-  In the terminal, install the required Python libraries (if already don't have them installed):
-
-```bash
-pip install flask
-pip install flask_cors
-
-```
-
-- **Run the REST API**  
-  Navigate to the REST API directory and start the server by running:
-
-  ```bash
-  python '.\REST API\authenticator.py'
-
-  ```
 
 If successful, the application will be ready to authenticate the listed users.
 
